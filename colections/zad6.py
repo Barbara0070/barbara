@@ -18,3 +18,9 @@ dane[indxmin]=max
 dane[indxmax]=tymczasowa
 print(dane)
 #liczby[0],liczby[2] =liczby[2], liczby[0]
+print(dir(dane))
+#wypisz dostepne metosy
+print("abcd" in dane)
+print("abc".upper())
+print(help("abc".istitle))
+#ipython napis.istitle??
