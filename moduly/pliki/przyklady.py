@@ -1,6 +1,6 @@
-import sys
+#import sys
 
-#print(sys.argv[1])
-with open("aa.txt") as f:
+#print(sys.argv[0])
+with open("aa.txt", "r") as f:
 
     print(f.read())

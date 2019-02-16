@@ -43,7 +43,7 @@ class Vector:
 
 
 
-#A→×B→=(a2b3−a3b2;a3b1−a1b3;a1b2−a2b1)
+
 
 vector_1=Vector(1,1)
 vector_2=Vector(2,5)
