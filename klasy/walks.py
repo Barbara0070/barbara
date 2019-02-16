@@ -41,8 +41,83 @@ class Postac:
         for element in self.ekwipunek:
             result+=f"{element.nazwa}, {element.bonus_do_ataku}\n"
         return result
+class Polozenie():
 
 
+
+    def __init__(self, x, y, zasieg_x, zasieg_y):
+
+        self.x = x
+
+        self.y = y
+
+        self.zasieg_x = zasieg_x
+
+        self.zasieg_y = zasieg_y
+
+
+
+    def __eq__(self, other):
+
+        return self.x == other.x and self.y == other.y
+
+
+
+    def w(self):
+
+        self.y += 1
+
+        if self.y > self.zasieg_y:
+
+            print("Wyszedłeś poza planszę")
+
+            exit()
+
+
+
+    def s(self):
+
+        self.y -= 1
+
+        if self.y < 1:
+
+            print("Wyszedłeś poza planszę")
+
+            exit()
+
+
+
+    def a(self):
+
+        self.x -= 1
+
+        if self.x < 1:
+
+            print("Wyszedłeś poza planszę")
+
+            exit()
+
+
+
+    def d(self):
+
+        self.x += 1
+
+        if self.x > self.zasieg_x:
+
+            print("Wyszedłeś poza planszę")
+
+            exit()
+
+
+
+    def __str__(self):
+
+        return f"Położenie: x = {self.x}, y = {self.y}"
+class Przedmiot:
+    def __init__(self, co, moc):
+        self.nazwa=co
+        self.bonus_do_ataku=moc
 def walka(first, second):
         def walnij(who,dmg):
             who.zdrowie-=dmg
@@ -59,17 +134,37 @@ def walka(first, second):
 
         while not walnij(second, first.moc_ataku()) and not walnij(first,second.moc_ataku()):
             pass
+class Plansza:
+    def __init__(self,gracz,wrog,skarb,x=10,y=10):
+        self.gracz=gracz
+        self.skarb=skarb
+        self.wrog=wrog
+        self.x=x
+        self.y=y
+        self.polozenie_gracza=polozenie(randint(1, self.x),randint(1,self.y), self.x,self.y)
+     def ruch(self):
+            print("Gracz: ", self.polozenie_gracza)
+
+            print("Wróg: ", self.polozenie_wroga)
+
+            print("Skarb: ", self.polozenie_skarbu)
+
+            kierunek = input("Podaj kierunek w-góra, s-dół, a-lewo,d-prawo: ")
+
+            getattr(self.polozenie_gracza, kierunek)()
+
+            self.polozenie_gracza.()
 
 
-def bojka(*args):
-    for uderzajacy in args:
-        who_got_hit==uderzajacy
-        while not who_got_hit==uderzajacy:
-            who_got_hit=random.choice(args)
-
- b  def __init__(self, nazwa, bonus_do_ataku):
-        self.nazwa = nazwa
-        self.bonus_do_ataku = bonus_do_ataku
+#def bojka(*args):
+#    for uderzajacy in args:
+#        who_got_hit==uderzajacy
+#        while not who_got_hit==uderzajacy:
+#            who_got_hit=random.choice(args)
+#
+#    def __init__(self, nazwa, bonus_do_ataku):
+#        self.nazwa = nazwa
+#        self.bonus_do_ataku = bonus_do_ataku
 
 
 def test_atak():
@@ -94,4 +189,5 @@ postac.daj_przedmiot(czapka)
 #print(postac)
 postac2 = Postac("grzegorz", 100, 10)
 walka(postac,postac2)
-bojka(postac,postac2)
+#bojka(postac,postac2)
+#plansza= Plansza()
