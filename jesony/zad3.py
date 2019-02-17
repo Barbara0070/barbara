@@ -1,5 +1,10 @@
 import requests
 import sys
+import urlib.parse
+x=urlib.parse.urlparse("https://www.metaweather.com/api/location/search/?query")
+print(x.path)
+
+
 from collections import namedtuple
 
 # Weather = namedtuple("weather", [location,])

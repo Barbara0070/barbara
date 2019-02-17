@@ -1,4 +1,6 @@
 import json
+import getpass
+
 while True:
 #    slownik={}
 
@@ -8,6 +10,8 @@ while True:
     x=input()
 
     if x=='d':
+        haslo = input("podaj haslo")
+
         print("imie:")
         imie=input()
         print("Nazwisko:")

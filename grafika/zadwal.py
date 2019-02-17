@@ -1,12 +1,13 @@
 import json
 import requests
+import decimal
 resp=requests.get("http://api.nbp.pl/api/exchangerates/tables/A?format=json")
 #sprawdza czy status = 200
 resp.raise_for_status()
 
 #with open("waluty.json", "w") as file:
 #    json.dump(resp,file)
-kursy=resp.json()[0]['rates']
+kursy=resp.json(parse_float=decimal.Decimal)[0]['rates']
 #type employees.json | python
 for i in kursy:
     if i['currency'] == "euro":
